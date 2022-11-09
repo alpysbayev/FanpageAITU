@@ -4,6 +4,33 @@
 
 {% block content %}
     <div class="container">
-        <h1>Sign Up Page</h1>
+        <form method="post">
+            <h1>Sign Up Page</h1>
+
+            <!-- Form for signup -->
+            <div class="container">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Username"><br>
+
+                <label for="firstname">First name</label>
+                <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name"><br>
+
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name"><br>
+
+                <label for="password">Password</label>
+                <input type="text" class="form-control" name="password" id="password" placeholder="Password"><br>
+
+                <label for="confirm">Confirm password</label>
+                <input type="text" class="form-control" name="confirm" id="confirm" placeholder="Confirm password"><br>
+
+                <input type="submit" value="Sign Up">
+
+                <p>
+                    Already have an account? <a href="{{ url_for('login') }}">Log In</a>
+                </p>
+            </div>
+
+        </form>
     </div>
 {% endblock %}

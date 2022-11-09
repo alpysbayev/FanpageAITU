@@ -27,11 +27,32 @@ def contact():
     return render_template('contact.html')
 
 
-@flask_app.route('/login')
+@flask_app.route('/profile/<string:username>')
+def profile(username):
+    return render_template('profile.html', username=username)
+
+
+@flask_app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        session['authenticated'] = True
+        return redirect(url_for('profile', username=username))
+    else:
+        return render_template('login.html')
 
 
-@flask_app.route('/signup')
+@flask_app.route('/signup',  methods=['GET', 'POST'])
 def signup():
-    return render_template('signup.html')
+    if request.method == 'POST':
+        username = request.form['username']
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        password = request.form['password']
+        confirm = request.form['confirm']
+
+        return redirect('/login')
+    else:
+        return render_template('signup.html')
