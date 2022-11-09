@@ -22,6 +22,11 @@ def posts():
     return render_template('posts.html')
 
 
+@flask_app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+
 @flask_app.route('/login')
 def login():
     return render_template('login.html')
