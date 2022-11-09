@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, flash, redirect, session, url_for
-# from fastapi_file import db
-# import crud
-# import schemas
+from fastapi_file import db
+import crud
+import schemas
 
 flask_app = Flask(__name__)
 flask_app.config['SECRET_KEY'] = 'super_secret'
@@ -39,9 +39,17 @@ def login():
         password = request.form['password']
 
         session['authenticated'] = True
+        session['user_id'] = 1
         return redirect(url_for('profile', username=username))
     else:
         return render_template('login.html')
+
+
+@flask_app.route('/logout')
+def logout():
+    session.pop('authenticated', None)
+    session.pop('user_id', None)
+    return redirect(url_for('login'))
 
 
 @flask_app.route('/signup',  methods=['GET', 'POST'])
