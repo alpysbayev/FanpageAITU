@@ -7,3 +7,48 @@
         <h1>Log In Page</h1>
     </div>
 {% endblock %}
+{% block content %}
+    <header id="header" class="header">
+		<div class="container">
+			<div class="nav">
+				<img src="#" alt="Fanpage AITU" class="logo">
+				<ul class="menu">
+					<li>
+						<a href="#">
+							Home
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							About
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Log In
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Sign Up
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+</header>
+
+<header id="header" class="header2">
+    <div class="container">
+        <center><div class="login">Log In</center></div>
+        <center><div class="input">
+            <p><input name="user" required placeholder="Username"></p>
+            <p><input name="user" required placeholder="Paswword"></p>
+            <p><input type="submit" value="Log In"></p>
+            <a href="#" class="dacc">Don't have an account yet?</a>
+            <p><input type="submit" value="Sign Up"></p>
+        </center></div>
+    </div>
+</header>
+{% endblock %}

@@ -1,0 +1,157 @@
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	color: black;
+	/* font-size: 25px; */
+
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding: 0;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 50px;
+	margin-bottom: 58px;
+}
+
+h3 {
+	font-size: 25px;
+	margin-bottom: 28px;
+}
+
+a {
+	text-decoration: none;
+}
+
+section {
+	padding-top: 113px	
+}
+
+p {
+	margin: 0;
+}
+
+ul, li {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 1170px;
+	/*позиционирование по центру*/
+	margin: 0 auto; 
+}
+
+.header {
+    margin-top: 106;
+	background: url('../img/header-bg.jpg') no-repeat center top / cover;
+	padding-top: 57px;
+	color: rgb(0, 0, 0);
+	padding-bottom: 150px
+}
+
+header a {
+	color: rgb(0, 0, 0);
+}
+
+.logo {
+	margin-right: 330px;
+    
+    
+}
+
+.menu {
+	display: flex;
+    margin-left: auto;
+}
+
+.menu li a {
+	text-transform: uppercase;
+	font-size: 20px;
+	letter-spacing: 0.001em;
+}
+
+.menu li a:hover {
+	border-bottom: 1px solid #fff;
+}
+
+.menu li {
+	margin-right: 60px;
+}
+
+.teammember {
+    margin-top: auto;
+    font-size: 25px;
+    display: inline-flex ;
+	align-items: center;
+    justify-content: space-around;
+
+}
+.dacc {
+    font-size: 10;
+}
+
+.header1 {
+    padding-top: 25px;
+    padding-bottom: 150px;
+}
+
+.header2 a {
+    font-size: 10;
+}
+
+.firstmember {
+    margin-left: auto;
+}
+
+.secondmember {
+    margin: auto;
+}
+
+.thirstmember {
+    margin-right: auto;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+}
+
+.offer {
+	text-transform: uppercase;
+	margin-top: 216px;
+}
+
+.offer p {
+	font-size: 30px;
+	letter-spacing: 0.1em;
+}
+
+.offer h1 {
+	font-size: 100px;
+	margin-bottom: 19px;
+	margin-top: -9px;
+	letter-spacing: 0.02em
+}
+
+.user {
+    width: 40px;
+    height: 20px;
+}
+
+.login {
+    font-size: 35px;
+}
+
+.input {
+    font-size: 10;
+}
