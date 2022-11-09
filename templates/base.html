@@ -13,21 +13,35 @@
 
     <!-- Header of Pages -->
     <header>
-
         <!-- NavBar -->
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="{{ url_for('home') }}"> FanPage AITU </a> </li>
-                <li><a href="{{ url_for('home') }}"> Home </a> </li>
-                <li><a href="{{ url_for('about') }}"> About </a> </li>
-                <li><a href="{{ url_for('posts') }}"> Posts </a> </li>
-                <li><a href="{{ url_for('contact') }}"> Contact </a> </li>
-                <li><a href="{{ url_for('login') }}"> Log In </a> </li>
-                <li><a href="{{ url_for('signup') }}"> Sign Up </a> </li>
+                    <li><a href="{{ url_for('home') }}"> FanPage AITU </a> </li>
+                    <li><a href="{{ url_for('home') }}"> Home </a> </li>
+                    <li><a href="{{ url_for('about') }}"> About </a> </li>
+                    <li><a href="{{ url_for('posts') }}"> Posts </a> </li>
+                    <li><a href="{{ url_for('contact') }}"> Contact </a> </li>
+                {% if session['authenticated'] %}
+                    <li><a href="{{ url_for('profile', user_id=session.user_id) }}"> Profile </a> </li>
+                    <li><a href="{{ url_for('logout') }}"> Log Out </a> </li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}"> Log In </a> </li>
+                    <li><a href="{{ url_for('signup') }}"> Sign Up </a> </li>
+                {% endif %}
             </ul>
         </nav>
-
     </header>
+
+    <!-- Displaying flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
     <!-- Content of Pages -->
     <div class="container">

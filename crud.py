@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from sqlalchemy import and_
 import schemas
 import models
 import hashlib
@@ -7,6 +8,14 @@ import hashlib
 def hash_password(password):
     hash_pass = hashlib.md5(password.encode())
     return hash_pass.hexdigest()
+
+
+def check_like(db: Session, user_id: int, post_id: int):
+    return db.query(models.Like).filter(and_(models.Like.post_id == post_id, models.Like.author_id == user_id)).first()
+
+
+def delete_like(db: Session, user_id: int, post_id: int):
+    return db.query(models.Like).filter(and_(models.Like.post_id == post_id, models.Like.author_id == user_id)).delete()
 
 
 def get_occupancy_username(db: Session, user_id: int, new_username: str):
@@ -39,6 +48,14 @@ def get_all_users(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.User).offset(skip).limit(limit).all()
 
 
+def get_post_likes(db: Session, post_id: int):
+    return db.query(models.Like).filter(models.Like.post_id == post_id).count()
+
+
+def get_post_comments(db: Session, post_id: int):
+    return db.query(models.Comment).filter(models.Comment.post_id == post_id).all()
+
+
 def get_post_by_id(db: Session, post_id: int):
     return db.query(models.Post).filter(models.Post.id == post_id).first()
 
@@ -49,6 +66,14 @@ def get_user_posts(db: Session, user_id: int):
 
 def get_all_posts(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Post).offset(skip).limit(limit).all()
+
+
+def delete_comment(db: Session, comment_id: int):
+    db.query(models.Comment).filter(models.Comment.id == comment_id).delete()
+
+    db.commit()
+
+    return None
 
 
 def delete_post(db: Session, post_id: int):
@@ -108,6 +133,26 @@ def update_user(db: Session, user_id: int, updated_user: schemas.UserCreate):
     db.refresh(user)
 
     return user
+
+
+def create_like(db: Session, user_id: int, post_id: int):
+    new_like = models.Like(author_id=user_id, post_id=post_id)
+
+    db.add(new_like)
+    db.commit()
+    db.refresh(new_like)
+
+    return new_like
+
+
+def create_comment(db: Session, comment: schemas.CommentCreate, user_id: int, post_id: int):
+    new_comment = models.Comment(text=comment.text, author_id=user_id, post_id=post_id)
+
+    db.add(new_comment)
+    db.commit()
+    db.refresh(new_comment)
+
+    return new_comment
 
 
 def create_user(db: Session, user: schemas.UserCreate):

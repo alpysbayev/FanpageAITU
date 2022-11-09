@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <h3>{{ post.description }}</h3><br>
+        <p>{{ post.text }}</p>
+        <p>Author ID: {{ post.author_id }}</p>
+
+        {% if comments|length > 0 %}
+            <h4>Comments</h4>
+            {% for comment in comments %}
+                <div> userID: {{ comment.author_id }} --- {{ comment.text }}
+
+                    {% if comment.author_id == session.user_id or post.author_id == session.user_id %}
+                        <a href="{{ url_for('delete_comment', comment_id=comment.id, post_id=post.id) }}" role="button">Delete</a>
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+        {% endif %}
+
+
+        {% if session['authenticated'] %}
+            {{ likes }}
+            <a href="{{ url_for('like', user_id=session.user_id, post_id=post.id) }}" role="button">Like</a>
+            <form method="post">
+                <label for="comment">Comment</label>
+                <input type="text" name="comment" id="comment" placeholder="Type here..."><br>
+                <input type="submit" value="Comment">
+            </form>
+        {% endif %}
+
+        {% block settings %}{% endblock %}
+    </div>
+{% endblock %}

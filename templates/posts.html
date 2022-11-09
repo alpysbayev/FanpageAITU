@@ -5,5 +5,32 @@
 {% block content %}
     <div class="container">
         <h1>Posts Page</h1>
+
+        {% if all_posts|length > 0 %}
+            <div class="container">
+                {% for post in all_posts %}
+                    <div class="container">
+                        <h2>#{{ post.id }}: {{ post.title }}</h2>
+                        <p>{{ post.description }}</p>
+                        <p>Author ID: {{ post.author_id }}</p>
+                        <a class="btn btn-outline-primary" href="{{ url_for('post_detail', post_id=post.id) }}">View details »</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            {% if session['authenticated'] %}
+                <p>We have no post yet! :(</p>
+                <div>
+                    <p>Maybe you want to add one? :)</p>
+                    <a href="{{ url_for('create_post', user_id=session.user_id) }}">Create Post</a>
+                </div>
+            {% else %}
+                <p>We have no post yet! :(</p>
+                <div>
+                    <p>If you want to add post you have to create an account! :)</p>
+                    <a href="{{ url_for('signup') }}">Register</a>
+                </div>
+            {% endif %}
+        {% endif %}
     </div>
 {% endblock %}
