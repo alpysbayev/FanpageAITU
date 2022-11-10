@@ -37,6 +37,7 @@ class PostBase(BaseModel):
     title: str
     description: str
     text: str
+    img: str
 
 
 class PostCreate(PostBase):

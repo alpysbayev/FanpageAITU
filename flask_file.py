@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, flash, redirect, session, url_for
+from werkzeug.utils import secure_filename
 from fastapi_file import db
 import crud
 import schemas
+import os
 
 flask_app = Flask(__name__)
 flask_app.config['SECRET_KEY'] = 'super_secret'
+flask_app.config['UPLOAD_FOLDER'] = 'static\img'
 
 
 @flask_app.route('/')
@@ -64,8 +67,15 @@ def like(post_id, user_id):
 @flask_app.route('/users/<int:user_id>/create_post', methods=['GET', 'POST'])
 def create_post(user_id):
     if request.method == 'POST':
+        picture = request.files['picture']
+        if picture.filename != '':
+            picture.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), flask_app.config['UPLOAD_FOLDER'],
+                                      secure_filename(picture.filename)))
+
+        path_to_img = flask_app.config['UPLOAD_FOLDER'] + '\\' + secure_filename(picture.filename)
+
         post = schemas.PostCreate(title=request.form['title'], description=request.form['description'],
-                                  text=request.form['text'])
+                                  text=request.form['text'], img=path_to_img)
 
         crud.create_user_post(db=db, post=post, user_id=user_id)
 

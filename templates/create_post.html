@@ -6,7 +6,7 @@
     <div class="container">
         <h1>Create Post Page</h1>
         <div class="container">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <label for="title">Title</label>
                 <textarea name="title" class="form-control" id="title" placeholder="Enter title" rows="1"></textarea><br>
 
@@ -16,7 +16,7 @@
                 <label for="text">Main Text</label>
                 <textarea name="text" class="form-control" id="text" placeholder="Enter the main text here..." rows="5"></textarea><br>
 
-{#                <input type="file" name="picture">#}
+                <input type="file" name="picture">
 
                 <input type="submit" class="btn btn-success btn-lg" value="Submit">
             </form>
