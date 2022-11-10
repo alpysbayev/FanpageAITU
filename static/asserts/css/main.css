@@ -5,9 +5,10 @@ body{
     background-color:rgb(221, 46, 46);
 }
 
-/* h2{
+ h2{
     color: blue;
-} */
+	text-align: center;
+} 
 
 .menu {
 	display: flex;
