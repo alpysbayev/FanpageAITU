@@ -9,6 +9,8 @@
         <p>{{ post.text }}</p>
         <p>Author ID: {{ post.author_id }}</p>
 
+        <img src="../../{{ post.img }}" alt="" style="width: 300px">
+
         {% if comments|length > 0 %}
             <h4>Comments</h4>
             {% for comment in comments %}

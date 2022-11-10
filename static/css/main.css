@@ -1,0 +1,324 @@
+/* body {
+    padding: 0;
+    margin: 0;
+    font-family:'Montserrat', sans-serif;
+    color: black;
+    /* font-size: 25px; */
+
+
+
+    * {
+        padding: 0;
+        margin: 0;
+        font-family:Andale Mono, monospace;
+        color: black;
+        box-sizing: border-box;
+        align-items:center ;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        padding: 0;
+        margin: 0;
+        text-transform: lowercase;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 50px;
+        margin-bottom: 58px;
+      }
+
+      h3 {
+        font-size: 25px;
+        margin-bottom: 28px;
+      }
+      .span{
+        position: absolute;
+        width: 1000px;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      section {
+        padding-top: 113px
+      }
+
+      p {
+        margin: 0;
+      }
+
+      ul, li {
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        width: 1170px;
+        /*позиционирование по центру*/
+        margin:auto;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+      }
+
+      .header {
+          margin-top: 106;
+        background: url('../img/header-bg.jpg') no-repeat center top / cover;
+        padding-top: 57px;
+        color: rgb(0, 0, 0);
+        padding-bottom: 150px
+      }
+
+      header a {
+        color: rgb(0, 0, 0);
+        text-transform: lowercase;
+      }
+
+      .logo {
+        margin-right: 330px;
+
+
+      }
+
+      .menu {
+        display: flex;
+        margin: auto;
+      }
+
+      .menu li a {
+        text-transform: lowercase;
+        font-size: 20px;
+        letter-spacing: 0.001em;
+        align-items: center;
+      }
+
+      .menu li a:hover {
+        color: rgb(0, 0, 0);
+        border-bottom: 1px solid #fff;
+        text-transform: uppercase;
+      }
+
+      .menu li {
+        margin-right: 60px;
+        align-items: center;
+      }
+
+      .teammember {
+          margin-top: auto;
+          font-size: 25px;
+          display: inline-flex ;
+        align-items: center;
+          justify-content: space-around;
+
+      }
+      .dacc {
+          font-size: 10;
+      }
+
+      .header1 {
+          padding-top: 100px;
+          padding-bottom: 150px;
+      }
+
+      .header2 a {
+          font-size: 10;
+      }
+
+      .firstmember {
+          margin-left: auto;
+      }
+
+      .secondmember {
+          margin: auto;
+      }
+
+      .thirstmember {
+          margin-right: auto;
+      }
+
+      .nav {
+        display:inline-flexbox;
+        align-items: center;
+      }
+
+      .offer {
+        text-transform: uppercase;
+        margin-top: 216px;
+      }
+
+      .offer p {
+        font-size: 30px;
+        letter-spacing: 0.1em;
+      }
+
+      .offer h1 {
+        font-size: 100px;
+        margin-bottom: 19px;
+        margin-top: -9px;
+        letter-spacing: 0.02em
+      }
+
+      .user {
+          width: 40px;
+          height: 20px;
+      }
+
+      .login {
+          font-size: 35px;
+      }
+
+      .input {
+          font-size: 10;
+      }
+
+    /* #login{
+    position: absolute;
+    background-color: aqua; }*/
+
+    .container1{
+    position: relative;
+    margin-top: 100px;
+    margin: auto;
+    /* background-color: rgb(199, 199, 199); */
+    border-radius: 10px;
+    width: 450px;
+    height: 400px;
+    align-items:center ;
+
+    }
+    .container1 input[type="text"]
+    /* .container1 input[type="p"]*/
+    {
+        width:350px;
+        text-align:center;
+        display:block;
+        margin:20px auto;
+        padding:10px;
+        outline:none;
+        color:rgb(5, 5, 5);
+        border:2px solid #000000;
+        background:none;
+        border-radius:10px;
+        transition:0.4s;
+    }
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color:    rgb(0, 0, 0);
+        text-align: left;
+        background-color: none;
+        text-size-adjust: 10px;
+      }
+    h4{
+
+      color:rgb(0, 0, 0);
+      text-transform:lowercase;
+      font-weight:300;
+      text-align: center;
+
+    }
+    .container1 input[type="submit"]{
+
+
+      width:105px;
+      text-align:center;
+      display:block;
+      margin:20px auto;
+      padding:10px;
+      outline:none;
+      color:black;
+      border:2px solid #000000;
+      background:none;
+      border-radius:10px;
+      transition:0.4s;
+
+
+    }
+    .container1 input[type="submit"]:hover{
+
+      background:#8a928e;
+
+
+    }
+    .pi p{
+      color: #000000;
+      text-align: center;
+}
+    .container2{
+      position: relative;
+      margin: auto;
+      background-color: rgb(199, 199, 199);
+      border-radius: 10px;
+      width: 450px;
+      height: 750px;
+      align-items:center ;
+
+      }
+      .container2 input[type="text"]
+      /* .container1 input[type="p"]*/
+      {
+
+
+          width:350px;
+          text-align:center;
+          display:block;
+          margin:20px auto;
+          padding:10px;
+          outline:none;
+          color:rgb(5, 5, 5);
+          border:2px solid #000000;
+          background:none;
+          border-radius:10px;
+          transition:0.4s;
+          align-items:center ;
+      }
+      .container2 input[type="submit"]{
+
+
+        width:105px;
+      text-align:center;
+      display:block;
+      margin:20px auto;
+      padding:10px;
+      outline:none;
+      color:black;
+      border:2px solid #000000;
+      background:none;
+      border-radius:10px;
+      transition:0.4s;
+
+
+      }
+      .container2 input[type="submit"]:hover{
+
+        background:#8a928e;
+
+
+      }
+      .teammember p {
+        margin-right: 70px;
+        color: #000000;
+      }
+      .abyl-babyl {
+        position: relative;
+        margin: auto;
+        background-color: rgb(199, 199, 199);
+         border-radius: 10px;
+         width: 450px;
+         height: 450px;
+          align-items:center ;
+
+      }
+      .signup p {
+        align-items:center ;
+        margin: auto;
+      }
+      .img{
+
+      }
+      .imgs {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 10px;
+        height: 10px;
+      }

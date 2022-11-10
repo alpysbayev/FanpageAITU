@@ -11,9 +11,10 @@
                 {% for post in all_posts %}
                     <div class="container">
                         <h2>#{{ post.id }}: {{ post.title }}</h2>
+                        <img src="../{{ post.img }}" alt="" width="300">
                         <p>{{ post.description }}</p>
                         <p>Author ID: {{ post.author_id }}</p>
-                        <a class="btn btn-outline-primary" href="{{ url_for('post_detail', post_id=post.id) }}">View details »</a>
+                        <a class="btn" href="{{ url_for('post_detail', post_id=post.id) }}">View details »</a>
                     </div>
                 {% endfor %}
             </div>
